@@ -1,0 +1,9 @@
+{
+    "name" : "tiuliel/exemplo-crud-php-poo",
+    "description" : "Versão de exemplo usando orientação a objetos",
+    "autoload" : {
+        "psr-4" : {
+            "ExemploCrudPoo\\" : "src/"
+        }
+    }
+}
