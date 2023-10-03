@@ -31,7 +31,7 @@ public static function conecta():PDO {
         PDO::ATTR_ERRMODE, 
         PDO::ERRMODE_EXCEPTION
     );
-    echo"blz";
+    
 } catch(Exception $erro){
     die("Deu ruim: ".$erro->getMessage());
 }
