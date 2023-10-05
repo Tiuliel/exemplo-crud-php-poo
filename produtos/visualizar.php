@@ -27,10 +27,10 @@ $quantidade = count($listaDeProdutos);
                 <article class="shadow p-2">
                     <h3> <?=$produto["produto"]?> </h3>
                     <h4> <?=$produto["fabricante"]?> </h4>
-                    <p><b>Preço:</b> <?=formatarPreco($produto["preco"])?> </p>
+                    <p><b>Preço:</b> <?=$produto["preco"]?> </p>
                     <p><b>Quantidade:</b> <?=$produto["quantidade"]?> </p>
                     <p><b>Total:</b>
-                    <?=calcularTotal($produto["preco"], $produto["quantidade"])?></p>
+                    </p>
                     <hr>
                     <p>
                         <a href="atualizar.php?id=<?=$produto["id"]?>">Editar</a> |

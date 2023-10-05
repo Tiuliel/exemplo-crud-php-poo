@@ -15,7 +15,7 @@ final class Produto{
 
 
     private PDO $conexao;
-    public function  __destruct()
+    public function  __construct()
     {
         $this->conexao = Banco::conecta();
     }
@@ -64,7 +64,7 @@ final class Produto{
         }
     }
 
-    function lerUmProduto():array {
+    public function lerUmProduto():array {
         $sql = "SELECT * FROM produtos WHERE id = :id";
         try {
             $consulta = $this->conexao->prepare($sql);
@@ -77,6 +77,27 @@ final class Produto{
         return $resultado;
     }
 
+    public function atualizarProduto():void {
+
+        $sql = "UPDATE produtos SET
+            nome = :nome,
+            preco = :preco,
+            quantidade = :quantidade,
+            descricao = :descricao,
+            fabricante_id = :fabricanteId WHERE id = :id";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindValue(":nome", $this->nome, PDO::PARAM_STR);
+            $consulta->bindValue(":preco", $this->preco, PDO::PARAM_STR);
+            $consulta->bindValue(":quantidade", $this->quantidade, PDO::PARAM_INT);
+            $consulta->bindValue(":descricao", $this->descricao, PDO::PARAM_STR);
+            $consulta->bindValue(":fabricanteId", $this->fabricanteId, PDO::PARAM_INT);
+            $consulta->bindValue(":id", $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch (Exception $erro) {
+            die("Erro ao atualizar: ".$erro->getMessage());
+        }   
+    }
     
     public function getId(): int
     {
