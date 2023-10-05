@@ -9,7 +9,7 @@ use PDO;
     private int $id;
     private string $nome;
 
-    // esta propriedade receberá os recursos PDO através da classe Banco (dependência dste projeto)
+    // esta propriedade receberá os recursos PDO através da classe Banco (dependência deste projeto)
     private PDO $conexao;
 
     public function __construct()
