@@ -3,19 +3,19 @@ use ExemploCrudPoo\{Produto,Fabricante};
 
 require_once "../vendor/autoload.php";
 
-$produto = new Produto;
-$fabricante = new Fabricante;
+$objetoProduto = new Produto;
+$objetoFabricante = new Fabricante;
 
 
 $listaDeFabricantes = $fabricante->lerFabricantes();
 
 if(isset($_POST['inserir'])){
-$produto->setNome($_POST['nome']);
-$produto->setPreco($_POST['preco']);
-$produto->setQuantidade($_POST['quantidade']);
-$produto->setFabricanteId($_POST['fabricante']);
-$produto->setDescricao($_POST['descricao']);
-$produto->inserirProduto();
+$objetoProduto->setNome($_POST['nome']);
+$objetoProduto->setPreco($_POST['preco']);
+$objetoProduto->setQuantidade($_POST['quantidade']);
+$objetoProduto->setFabricanteId($_POST['fabricante']);
+$objetoProduto->setDescricao($_POST['descricao']);
+$objetoProduto->inserirProduto();
 
     header("location:visualizar.php");
 }
